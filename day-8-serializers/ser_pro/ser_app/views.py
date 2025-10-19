@@ -32,16 +32,17 @@ from .serializer import StudentSerializer
 #     return JsonResponse({'sucess':"user updated sucessfully"})
         
 
-@csrf_exempt
-def delete_user(req,id):
-    try:
-         existing_stu=Student.objects.get(stu_id=id)
-         existing_stu.delete()
-         return JsonResponse({"sucess":"user deleted"})
-    except:
-         return HttpResponse("user not found")
+# @csrf_exempt
+# def delete_user(req,id):
+#     try:
+#          existing_stu=Student.objects.get(stu_id=id)
+#          existing_stu.delete()
+#          return JsonResponse({"sucess":"user deleted"})
+#     except:
+#          return HttpResponse("user not found")
     
 
+# CRUD operations using Serializers
 
 def get_users(req):
      all_data=Student.objects.all()
@@ -49,11 +50,28 @@ def get_users(req):
      print(serialized_data.data)
      return JsonResponse({"data":serialized_data.data})
 
-
+@csrf_exempt
 def update_user(req,id):
      user_data=json.loads(req.body)
      exists=Student.objects.get(stu_id=id)
 
-     StudentSerializer(data=user_data,partial=True)
+     serialized_data=StudentSerializer(exists,data=user_data,partial=True)
      if serialized_data.is_valid():
           serialized_data.save()
+     return HttpResponse("user updated")
+        
+
+@csrf_exempt
+def create_user(req):
+    user_data=json.loads(req.body)
+    serialized_data=StudentSerializer(data=user_data)
+    if serialized_data.is_valid():
+         serialized_data.save()
+         return JsonResponse({"sucess":"user added sucessfully"})
+    
+
+@csrf_exempt
+def delete_user(req,id):
+     serializer=Student.objects.get(stu_id=id)
+     serializer.delete()
+     return JsonResponse({"sucess":"user deleted sucessfully"})
