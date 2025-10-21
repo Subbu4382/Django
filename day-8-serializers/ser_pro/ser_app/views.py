@@ -6,6 +6,10 @@ import json
 from .serializer import StudentSerializer
 # Create your views here.
 
+
+def get_users(req):
+     data=Student.objects.all().values()
+     return HttpResponse(list(data))
 # @csrf_exempt
 # def update_user(req,id):
   
@@ -44,11 +48,11 @@ from .serializer import StudentSerializer
 
 # CRUD operations using Serializers
 
-def get_users(req):
-     all_data=Student.objects.all()
-     serialized_data=StudentSerializer(all_data,many=True)
-     print(serialized_data.data)
-     return JsonResponse({"data":serialized_data.data})
+# def get_users(req):
+#      all_data=Student.objects.all()
+#      serialized_data=StudentSerializer(all_data,many=True)
+#      print(serialized_data.data)
+#      return JsonResponse({"data":serialized_data.data})
 
 @csrf_exempt
 def update_user(req,id):
