@@ -59,4 +59,4 @@ def delete_user(req):
           user_exists.delete()
           return JsonResponse({"sucess":"user deleted sucessfully"})
     except:
-        return JsonResponse({"msg":"user not found"})
+        return JsonResponse({"msg":"user not foun"})
