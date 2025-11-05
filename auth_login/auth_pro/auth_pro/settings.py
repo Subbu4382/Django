@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-amkum^sd_mq*)!0vc**d+wx5lh@)==5z@j=oq@3jh6ea($)cn6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,14 +79,14 @@ WSGI_APPLICATION = 'auth_pro.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.mysql',
-        'NAME':env("DB_NAME"),
+  'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env("DB_NAME"),
         "USER":env("DB_USER"),
         "PASSWORD":env("DB_PASSWORD"),
-        'HOST':"localhost",
-        "PORT":"3306"
-}
+        'HOST':env("DB_HOST"),
+        "PORT":env("DB_PORT")
+    }
 }
 
 
