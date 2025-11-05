@@ -5,6 +5,7 @@ from .models import Instagram
 import json
 from django.views.decorators.csrf import csrf_exempt
 import bcrypt 
+import cloudinary
 
 
 def register(req):
@@ -17,6 +18,18 @@ def register(req):
         "password":req.POST.get("password"),
        "mobile":req.POST.get("mobile")
         }
+        profile_pic=req.FILES.get("profile")
+        if profile_pic:
+            upload_pic=cloudinary.uploader.upload(profile_pic)
+            profile_url=upload_pic["secure_url"]
+
+        else:
+            profile_url=None
+        print("File Received:",profile_pic)
+        print("Cloudinary URL:", profile_url)
+
+        user_data["profile_pic"]=profile_url
+
 
         if Instagram.objects.filter(username=user_data["username"]).exists():
             message="user Already Exists"

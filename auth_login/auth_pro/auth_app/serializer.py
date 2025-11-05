@@ -5,3 +5,4 @@ class InstagramSerializer(serializers.ModelSerializer):
     class Meta:
         model=Instagram
         fields="__all__"
+       
