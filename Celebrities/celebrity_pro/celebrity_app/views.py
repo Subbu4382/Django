@@ -93,4 +93,4 @@ def get_data(req):
     
 
 def dashboard(req):
-   return render(req,"dashboard.html")
+   return render(req,"Dashboard.html")
