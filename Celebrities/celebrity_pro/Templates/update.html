@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Celebrity</title>
+     <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .update-container {
+      background: #ffffff;
+      padding: 10px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      min-height: 420px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .update-container:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      color: #1e3c72;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 7px 8px;
+      margin: 1px 0;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      outline: none;
+      font-size: 12px;
+      transition: all 0.2s ease;
+    }
+
+    input:focus {
+      border-color: #2a5298;
+      box-shadow: 0 0 5px rgba(42, 82, 152, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      transform: scale(1.03);
+    }
+
+    p {
+      color: #1e3c72;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2a5298;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .update-container {
+        width: 85%;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <div class="update-container">
+
+        <h2>Update Celebrity</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Existing Name" required><br><br>
+            <input type="number" name="age" placeholder="New Age"><br><br>
+            <input type="text" name="gender" placeholder="New Gender"><br><br>
+            <input type="text" name="profession" placeholder="New Profession"><br><br>
+            <input type="text" name="followers" placeholder="New Followers"><br><br>
+            <input type="text" name="nationality" placeholder="New Nationality"><br><br>
+            <input type="date" name="DOB"><br><br>
+            <input type="file" name="profile_pic"><br><br>
+            <button type="submit">Update</button>
+        </form>
+
+        <p >{{ message }}</p>
+
+        <a href="/dashboard/"> Back To Dashboard</a>
+    </div>
+
+</html>

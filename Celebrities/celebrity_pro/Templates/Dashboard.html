@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #8efcb7;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      flex-direction: column;
+      color: #333;
+    }
+
+    /* 🏷️ Heading */
+    h1 {
+      font-size: 2.3rem;
+      color: #0a0a61;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    /* 🔗 Navigation Buttons */
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      background-color: #2a2a72;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #267546;
+      transform: scale(1.03);
+    }
+
+    /* 📱 Responsive Design */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      a {
+        font-size: 14px;
+        padding: 9px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+     <h1>Celebrity Dashboard</h1>
+
+  <div class="nav-links">
+    <a href="/get_data/">Celebrities Information</a>
+    <a href="/register/">Add Celebrity</a>
+    <a href="/update/">Update Celebrity</a>
+    <a href="/delete/">Delete Celebrity</a>
+  </div>
+</body>
+</html>

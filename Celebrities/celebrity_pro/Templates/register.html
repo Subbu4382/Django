@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <style>
+    /* 🌙 General Page Styling */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1d2671, #c33764);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 🧾 Container Box */
+    .form-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        width: 350px;          /* Smaller width */
+        min-height: 320px;     /* Reduced height */
+       
+    }
+
+    /* 🌟 Heading */
+    h2 {
+        text-align: center;
+        color: #1d2671;
+        margin-bottom: 20px;
+        font-size: 25px;
+        letter-spacing: 0.5px;
+    }
+
+    /* 🧍 Input Fields */
+    input,
+    select {
+        width: 100%;
+        padding: 7px 8px;
+        margin: 2px 0 8px;
+        border: 1px solid #5c3c92;
+        border-radius: 8px;
+        outline: none;
+        font-size: 13px;
+        transition: all 0.2s ease;
+    }
+
+    input:focus,
+    select:focus {
+        border-color: #c33764;
+        box-shadow: 0 0 6px rgba(195, 55, 100, 0.4);
+    }
+
+    /* 🚀 Button */
+    button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(90deg, #1d2671, #c33764);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background: linear-gradient(90deg, #c33764, #1d2671);
+        transform: scale(1.03);
+    }
+
+    /* 💬 Message Section */
+    .message {
+        text-align: center;
+        font-weight: 600;
+        margin-top: 10px;
+        color: #3a2575;
+        font-size: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: #2a5298;
+      display: inline-block;
+      margin-top: 8px;
+     
+    }
+
+    /* 📱 Responsive Design */
+    @media (max-width: 480px) {
+        .form-container {
+            width: 85%;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Celebrity Registration</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Celebrity Name" required><br>
+            <input type="number" name="age" placeholder="Age" required><br>
+            <select name="gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select><br>
+            <input type="text" name="profession" placeholder="Profession" required><br>
+            <input type="text" name="followers" placeholder="Followers count" required><br>
+            <input type="text" name="nationality" placeholder="Nationality"><br>
+            <input type="date" name="DOB" required><br>
+            <input type="file" name="profile_pic"><br>
+            <button type="submit">Register</button>
+        </form>
+        <p class="message">{{ message }}</p>
+        <a href="/dashboard/">Back To Dashboard</a>
+    </div>
+
+
+</body>
+
+</html>

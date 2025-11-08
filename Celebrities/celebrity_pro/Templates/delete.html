@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Celebrity</title>
+     <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fc7f6e, #fc818f);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .delete-container {
+      background: #ffffff;
+      padding: 40px 45px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .delete-container:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #b71c1c;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    input:focus {
+      border-color: #ed213a;
+      box-shadow: 0 0 5px rgba(237, 33, 58, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(90deg, #93291e, #ed213a);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #ed213a, #93291e);
+      transform: scale(1.03);
+    }
+
+    p {
+      color: red;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #93291e;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .delete-container {
+        width: 85%;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <div  class="delete-container">
+        <h2>Delete Celebrity</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Enter Celebrity Name" required><br><br>
+        <button type="submit" style="background:red; color:white;">Delete</button>
+    </form>
+
+    <p style="color:red;">{{ message }}</p>
+
+    <a href="/dashboard/">Back To Dashboard</a>
+    </div>
+</body>
+
+</html>
