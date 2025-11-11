@@ -12,7 +12,7 @@ def get_students(req):
     serializer=StudentSerializer(data,many=True)
     return JsonResponse({"data":serializer.data})
 
-@csrf_exempt
+# @csrf_exempt
 def reg_student(req):
     try:
       data=json.loads(req.body)
@@ -35,3 +35,4 @@ def login(req):
    except Exception as e:
       return HttpResponse(e) 
    
+
