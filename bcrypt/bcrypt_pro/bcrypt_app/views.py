@@ -25,3 +25,13 @@ def reg_student(req):
          return JsonResponse({"sucess":"data saved sucessfully"})
     except Exception as e:
        return JsonResponse({"msg":e})
+    
+def login(req):
+   try:
+     stu_data=json.loads(req.body)
+     Student=Students.objects.get(stu_id=stu_data["stu_id"])
+     if bcrypt.checkpw(stu_data["stu_password"].encode("utf-8"),Student.stu_password.encode("utf-8")):
+      return HttpResponse(f"Login Sucessfull! Welcome {Student.stu_name}")
+   except Exception as e:
+      return HttpResponse(e) 
+   
