@@ -1,0 +1,99 @@
+/* ------- GLOBAL RESET ------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ------- PAGE CONTAINER ------- */
+.page-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ------- GRID LIST ------- */
+.celebrity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* ------- CARD STYLE ------- */
+.celebrity-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.celebrity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.celebrity-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+/* ------- CARD TITLE ------- */
+.celebrity-card h3 {
+  font-size: 20px;
+  color: #1c3599;
+  margin-top: 10px;
+}
+
+/* ------- DETAIL PAGE ------- */
+.detail-container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  background: #d7f0fa;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.detail-img {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.detail-info h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.detail-info p {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.back-btn {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #555;
+}
