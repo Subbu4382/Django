@@ -91,6 +91,16 @@ def get_data(req):
     # return JsonResponse({"msg":serializer.data})
     return render(req,"data.html",{"celebrities":all_data})
     
+def Alldata(req):
+   all_data=Celebrities.objects.all()
+   serializer=CelebritySerializer(all_data,many=True)
+   return JsonResponse(serializer.data,safe=False)
+
+def data(req,id):
+   all_data=Celebrities.objects.get(id=id)
+   serializer=CelebritySerializer(all_data)
+   return JsonResponse(serializer.data,safe=False)
+
 
 def dashboard(req):
    return render(req,"Dashboard.html")
